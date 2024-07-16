@@ -3,7 +3,7 @@ import struct
 import os
 from time import perf_counter
 
-class ping:
+class Ping:
     def __init__(self, socket):
         self.socket = socket
 
@@ -131,5 +131,5 @@ class ping:
             except ValueError:
                 print("Not in correct format")
 
-ping = ping(socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP))
+ping = Ping(socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP))
 ping.start()
