@@ -93,6 +93,7 @@ class Ping:
         return header + payload
 
 
+
     def listen_for_reply(self, start_time: int):
         response, addr = self.socket.recvfrom(1024)
         self.process_data(response, start_time)
@@ -122,7 +123,7 @@ class Ping:
                     self.doPing(ip=ip, port=port)
                     break
 
-                elif not self.is_valid_ip(ip): #is it a invalid ip
+                elif not self.is_valid_ip(ip): #is it an invalid ip
                     print("not a valid ip address")
 
                 elif not (0 <= port <= 65535): #is it a inavlid port number
@@ -131,5 +132,6 @@ class Ping:
             except ValueError:
                 print("Not in correct format")
 
-ping = Ping(socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP))
-ping.start()
+if __name__ == "__main__":
+    ping = Ping(socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP))
+    ping.start()
